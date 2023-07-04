@@ -19,10 +19,14 @@ fun Navigation(){
         composable(route = Screens.AddCourtScreen.route){
             AddCourtScreen(navController = navController, vm = vm)
         }
+        composable(route = Screens.CourtDetailsScreen.route){
+            CourtDetailsScreen(navController = navController, vm = vm)
+        }
     }
 }
 
 sealed class Screens(val route: String){
     object BasketCourtsScreen: Screens("basketcourtsscreen")
     object AddCourtScreen: Screens("addcourtscreen")
+    object CourtDetailsScreen: Screens("courtdetailsscreen")
 }

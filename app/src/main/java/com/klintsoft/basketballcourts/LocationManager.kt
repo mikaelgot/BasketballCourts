@@ -48,6 +48,7 @@ class LocationManager(
     fun stopLocationTracking() {
         locationClient.flushLocations()
         locationClient.removeLocationUpdates(this)
+        Log.i("MyInfo", "SHOULD STOP LOCATION TRACKING")
     }
 
     override fun onLocationResult(location: LocationResult) {

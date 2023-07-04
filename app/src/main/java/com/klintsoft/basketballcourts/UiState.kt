@@ -8,16 +8,20 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 data class UiState(
-    val setOfCourts: Set<BasketCourt> = setOf(valpurinpuisto),
+    val setOfCourts: Set<BasketCourt> = setOf(),
 
     val currentLocation: Location? = null,
     val geoInfo: GeoLocationInfo? = null,
 
-    val courtImage: Bitmap? = null,
+    //val courtImage: Bitmap? = null,
     val imageUri: Uri = Uri.EMPTY,
 
-    val newCourt: BasketCourt = BasketCourt(),
+    val activeCourt: BasketCourt = BasketCourt(),
     val isSaveEnabled: Boolean = false,
+
+    val oneBasketCourt: BasketCourt? = null,
+
+    val showDeleteAlert: Boolean = false,
 )
 
 data class GeoLocationInfo(
@@ -41,13 +45,15 @@ val basketCourtsDemoSet = List(6){ BasketCourt(name = "basketCourt$it")}.toSet()
 
 @Serializable
 data class BasketCourt(
-    //val imageData: List<Byte> = listOf(),
+    val id: Int? = null,
     val name: String = "",
-    val latitude: String = "60.1901035",
-    val longitude: String =  "24.9170978",
+    val latitude: String = "",
+    val longitude: String =  "",
+    val description: String = "",
     val district: String = "",
     val numberOfBaskets: Int = 0,
     val isClosedCourt: Boolean = false,
-    val terrain: String = "Asphalt",
-    val isPaid: Boolean = false
+    val terrain: String = "",
+    val isPaid: Boolean = false,
+    val imageUrl: String = "",
 )
